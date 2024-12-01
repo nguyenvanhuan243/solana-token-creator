@@ -168,3 +168,5 @@ const createMintTransaction = new Transaction().add(
 You can find the full source code for this application [here](https://github.com/jacobcreech/Token-Creator/blob/master/src/components/CreateToken.tsx).
 
 Enjoy your new token!
+
+# Other demo: https://solana-token-creator-phi.vercel.app/
