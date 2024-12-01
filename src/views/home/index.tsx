@@ -37,7 +37,7 @@ export const HomeView: FC = ({ }) => {
           Token Creator
         </h1>      
         <div className="text-center">
-          <RequestAirdrop  my-2/>
+          {/* <RequestAirdrop  my-2/> */}
           {wallet && <p>SOL Balance: {(balance || 0).toLocaleString()}</p>}
           <CreateToken />
         </div>

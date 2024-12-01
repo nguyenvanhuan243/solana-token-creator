@@ -79,16 +79,16 @@ export const AppBar: FC = (props) => {
           <Link href="/">
             <a className="mr-8">Token Creator</a>
           </Link>
-          <Link href="/update">
+          {/* <Link href="/update">
             <a className="mr-4">Update Metadata</a>
-          </Link>
-          <Link href="/uploader">
+          </Link> */}
+          {/* <Link href="/uploader">
             <a className="mr-8">Upload Metadata</a>
-          </Link>
-          <Link href="/metadata">
+          </Link> */}
+          {/* <Link href="/metadata">
             <a className="mr-4">Token Metadata</a>
-          </Link>
-          <div className="dropdown">
+          </Link> */}
+          {/* <div className="dropdown">
             <div tabIndex={0} className="btn btn-square btn-ghost text-right">
               <svg
                 className="w-6 h-6"
@@ -129,7 +129,7 @@ export const AppBar: FC = (props) => {
                 </div>
               </li>
             </ul>
-          </div>
+          </div> */}
           <WalletMultiButton className="btn btn-ghost mr-4" />
         </div>
       </div>

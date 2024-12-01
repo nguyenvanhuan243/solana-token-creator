@@ -53,7 +53,7 @@ export const Footer: FC = () => {
                         </p>
                         <a
                             rel="noreferrer"
-                            href="https://solana.com/"
+                            href="https://t.me/huancapital"
                             target="_blank"
                             className="text-white text-base font-bold hover:text-primary-dark transition-all duration-200"
                         >
