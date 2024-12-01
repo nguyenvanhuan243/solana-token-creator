@@ -10,6 +10,7 @@ import { notify } from '../utils/notifications';
 const bundlers = [
   { id: 1, network: 'mainnet-beta', name: 'https://node1.bundlr.network' },
   { id: 2, network: 'devnet', name: 'https://devnet.bundlr.network'},
+  { id: 3, network: 'testnet', name: 'https://testnet1.bundlr.network' },
 ]
 
 const classNames = (...classes) => {
@@ -56,6 +57,14 @@ export const UploadMetadata: FC = ({}) => {
         provider,
         { providerUrl: 'https://api.devnet.solana.com' }
       );
+    } else 
+      if (selected.name === 'https://testnet1.bundlr.network') {
+        bundler = new WebBundlr(
+          `${selected.name}`,
+          'solana',
+          provider,
+          { providerUrl: 'https://api.testnet.solana.com' }
+        );
     } else {
        bundler = new WebBundlr(
         `${selected.name}`,
@@ -65,7 +74,6 @@ export const UploadMetadata: FC = ({}) => {
     }
 
     console.log(bundler)
-
     try {
       // Check for valid bundlr node
       await bundler.utils.getBundlerAddress('solana');
