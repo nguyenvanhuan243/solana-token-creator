@@ -39,7 +39,7 @@ export const CreateToken: FC = () => {
             data: {
               name: form.tokenName,
               symbol: form.symbol,
-              uri: form.metadata,
+              uri: "",
               creators: null,
               sellerFeeBasisPoints: 0,
               uses: null,
@@ -103,12 +103,6 @@ export const CreateToken: FC = () => {
         className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
         placeholder="Ticker"
         onChange={(e) => setSymbol(e.target.value)}
-      />
-      <input
-        type="text"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Image or video"
-        onChange={(e) => setMetadata(e.target.value)}
       />
       <input
         type="number"
