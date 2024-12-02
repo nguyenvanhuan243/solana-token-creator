@@ -1,7 +1,15 @@
 import { FC, useCallback, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Keypair, PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
-import { MINT_SIZE, TOKEN_PROGRAM_ID, createInitializeMintInstruction, getMinimumBalanceForRentExemptMint, getAssociatedTokenAddress, createAssociatedTokenAccountInstruction, createMintToInstruction } from '@solana/spl-token';
+import {
+  MINT_SIZE,
+  TOKEN_PROGRAM_ID,
+  createInitializeMintInstruction,
+  getMinimumBalanceForRentExemptMint,
+  getAssociatedTokenAddress,
+  createAssociatedTokenAccountInstruction,
+  createMintToInstruction
+} from '@solana/spl-token';
 import { createCreateMetadataAccountV3Instruction, PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
 
 export const CreateToken: FC = () => {
@@ -9,9 +17,10 @@ export const CreateToken: FC = () => {
   const { publicKey, sendTransaction } = useWallet();
   const [tokenName, setTokenName] = useState('')
   const [symbol, setSymbol] = useState('')
-  const [metadata, setMetadata] = useState('')
-  const [amount, setAmount] = useState(21000000)
-  const [decimals, setDecimals] = useState('')
+
+  // Supply 21_000_000 Token
+  const AMOUNT_TOKEN_SUPPLY = BigInt("21000000000000000");
+  const SOLANA_DECIMALS = 9;
 
   const onClick = useCallback(async (form) => {
     try {
@@ -75,7 +84,7 @@ export const CreateToken: FC = () => {
           mintKeypair.publicKey,
           tokenATA,
           publicKey,
-          form.amount * Math.pow(10, form.decimals),
+          form.amount,
         ),
         createMetadataInstruction
       );
@@ -104,31 +113,12 @@ export const CreateToken: FC = () => {
         placeholder="Ticker"
         onChange={(e) => setSymbol(e.target.value)}
       />
-       <input
-        type="text"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Description (Backend)"
-        onChange={(e) => setSymbol(e.target.value)}
-      />
-      <input
-        type="file"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Image/video (Backend)"
-        onChange={(e) => setMetadata(e.target.value)}
-      />
-      <input
-        type="number"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Decimals"
-        onChange={(e) => setDecimals(e.target.value)}
-      />
 
       <button
         className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
         onClick={() => onClick({
-          decimals: Number(decimals),
-          amount: Number(amount),
-          metadata: metadata,
+          decimals: Number(SOLANA_DECIMALS),
+          amount: AMOUNT_TOKEN_SUPPLY,
           symbol: symbol,
           tokenName: tokenName
         })}>
