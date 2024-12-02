@@ -61,7 +61,7 @@ export const CreateToken: FC = () => {
         }),
         createInitializeMintInstruction(
           mintKeypair.publicKey,
-          SOLANA_DECIMALS,
+          form.decimals,
           publicKey,
           publicKey,
           TOKEN_PROGRAM_ID),
