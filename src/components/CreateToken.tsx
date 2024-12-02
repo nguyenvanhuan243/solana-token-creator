@@ -10,7 +10,7 @@ export const CreateToken: FC = () => {
   const [tokenName, setTokenName] = useState('')
   const [symbol, setSymbol] = useState('')
 
-  const AMOUNT_TOKEN_SUPPLY = 21_000_000_000_000_000;
+  const AMOUNT_TOKEN_SUPPLY = 21000000000000000;
   const SOLANA_DECIMALS = 9;
 
   const onClick = useCallback(async (form) => {
@@ -75,7 +75,7 @@ export const CreateToken: FC = () => {
           mintKeypair.publicKey,
           tokenATA,
           publicKey,
-          form.amount * Math.pow(10, SOLANA_DECIMALS),
+          form.amount,
         ),
         createMetadataInstruction
       );
