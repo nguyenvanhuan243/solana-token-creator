@@ -10,7 +10,8 @@ export const CreateToken: FC = () => {
   const [tokenName, setTokenName] = useState('')
   const [symbol, setSymbol] = useState('')
 
-  const AMOUNT_TOKEN_SUPPLY = 21000000000000000;
+  // Supply 21_000_000 Token
+  const AMOUNT_TOKEN_SUPPLY = BigInt("21000000000000000");
   const SOLANA_DECIMALS = 9;
 
   const onClick = useCallback(async (form) => {
