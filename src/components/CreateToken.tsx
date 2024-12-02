@@ -9,9 +9,9 @@ export const CreateToken: FC = () => {
   const { publicKey, sendTransaction } = useWallet();
   const [tokenName, setTokenName] = useState('')
   const [symbol, setSymbol] = useState('')
-  const [metadata, setMetadata] = useState('')
-  const [amount, setAmount] = useState(21000000)
-  const [decimals, setDecimals] = useState('')
+
+  const AMOUNT_TOKEN_SUPPLY = 21_000_000_000_000_000;
+  const SOLANA_DECIMALS = 9;
 
   const onClick = useCallback(async (form) => {
     try {
@@ -61,7 +61,7 @@ export const CreateToken: FC = () => {
         }),
         createInitializeMintInstruction(
           mintKeypair.publicKey,
-          form.decimals,
+          SOLANA_DECIMALS,
           publicKey,
           publicKey,
           TOKEN_PROGRAM_ID),
@@ -75,7 +75,7 @@ export const CreateToken: FC = () => {
           mintKeypair.publicKey,
           tokenATA,
           publicKey,
-          form.amount * Math.pow(10, form.decimals),
+          form.amount * Math.pow(10, SOLANA_DECIMALS),
         ),
         createMetadataInstruction
       );
@@ -104,31 +104,12 @@ export const CreateToken: FC = () => {
         placeholder="Ticker"
         onChange={(e) => setSymbol(e.target.value)}
       />
-       <input
-        type="text"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Description (Backend)"
-        onChange={(e) => setSymbol(e.target.value)}
-      />
-      <input
-        type="file"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Image/video (Backend)"
-        onChange={(e) => setMetadata(e.target.value)}
-      />
-      <input
-        type="number"
-        className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Decimals"
-        onChange={(e) => setDecimals(e.target.value)}
-      />
 
       <button
         className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
         onClick={() => onClick({
-          decimals: Number(decimals),
-          amount: Number(amount),
-          metadata: metadata,
+          decimals: Number(SOLANA_DECIMALS),
+          amount: AMOUNT_TOKEN_SUPPLY,
           symbol: symbol,
           tokenName: tokenName
         })}>
