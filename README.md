@@ -4,6 +4,8 @@
 
 [Demo](https://solana-token-buy-sell.netlify.app)
 
+[Smart Contract](https://github.com/nguyenvanhuan243/pumpfun-smart-contract-solana.git)
+
 You can use the token creator application to create a token and
 sent it to your wallet. This application is purely for demonstration
 purposes.
