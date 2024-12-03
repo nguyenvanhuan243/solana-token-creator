@@ -1,8 +1,8 @@
 # Solana Token Creator
 
-## Creating a Solana Token
+## Buy sell token on PUMPFUN
 
-[Demo](https://solana-token-creator-phi.vercel.app)
+[Demo](https://solana-token-buy-sell.netlify.app)
 
 You can use the token creator application to create a token and
 sent it to your wallet. This application is purely for demonstration
