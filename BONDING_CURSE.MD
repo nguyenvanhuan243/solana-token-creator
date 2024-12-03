@@ -72,6 +72,8 @@ print(f"Chi phí để mua 10 Token: {cost}")
 refund = curve.sell(5)
 print(f"Hoàn tiền khi bán 5 Token: {refund}")
 
+```
+
 
 ### Mô tả các phương thức
 
