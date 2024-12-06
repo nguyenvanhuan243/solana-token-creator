@@ -1,16 +1,24 @@
 import { FC, useCallback, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Keypair, PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
+import {
+  Keypair,
+  PublicKey,
+  SystemProgram,
+  Transaction
+} from '@solana/web3.js';
 import {
   MINT_SIZE,
   TOKEN_PROGRAM_ID,
+  createMintToInstruction,
+  getAssociatedTokenAddress,
   createInitializeMintInstruction,
   getMinimumBalanceForRentExemptMint,
-  getAssociatedTokenAddress,
-  createAssociatedTokenAccountInstruction,
-  createMintToInstruction
+  createAssociatedTokenAccountInstruction
 } from '@solana/spl-token';
-import { createCreateMetadataAccountV3Instruction, PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
+import {
+  PROGRAM_ID,
+  createCreateMetadataAccountV3Instruction
+} from '@metaplex-foundation/mpl-token-metadata';
 
 export const CreateToken: FC = () => {
   const { connection } = useConnection();
