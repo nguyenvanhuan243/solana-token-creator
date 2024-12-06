@@ -138,6 +138,13 @@ export const CreateToken: FC = () => {
         onChange={(e) => setDecimals(e.target.value)}
       />
 
+
+      <a
+        className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
+        href="https://t.me/huancapital"
+        target="_blank">
+        <span>Contact Telegram</span>
+      </a>
       <button
         className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
         onClick={() => onClick({
