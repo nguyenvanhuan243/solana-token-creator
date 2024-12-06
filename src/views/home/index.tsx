@@ -32,7 +32,7 @@ export const HomeView: FC = ({ }) => {
   const renderCreateTokenHeader = () => {
     return (
       <h1 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-tr from-[#9945FF] to-[#14F195]">
-        Solana Token Creator
+        Solana Token Creator (Devnet)
       </h1>
     )
   }
@@ -49,6 +49,15 @@ export const HomeView: FC = ({ }) => {
           {wallet && <p>SOL Balance: {(balance || 0).toLocaleString()}</p>}
           <CreateToken />
         </div>
+
+        {/* <a
+          href="https:t.me/huancapital"
+          target='_blank'
+          rel="noreferrer"
+          className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
+        >
+          <span>Contact Us</span>
+        </a> */}
       </div>
     </div>
   );
