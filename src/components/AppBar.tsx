@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
+import NetworkSwitcher from "./NetworkSwitcher";
 
 export const AppBar: FC = (props) => {
   const { autoConnect, setAutoConnect } = useAutoConnect();
@@ -88,7 +89,7 @@ export const AppBar: FC = (props) => {
           {/* <Link href="/metadata">
             <a className="mr-4">Token Metadata</a>
           </Link> */}
-          {/* <div className="dropdown">
+          {<div className="dropdown">
             <div tabIndex={0} className="btn btn-square btn-ghost text-right">
               <svg
                 className="w-6 h-6"
@@ -117,7 +118,7 @@ export const AppBar: FC = (props) => {
             >
               <li>
                 <div className="form-control">
-                  <label className="cursor-pointer label">
+                  {/* <label className="cursor-pointer label">
                     <a>Autoconnect</a>
                     <input
                       type="checkbox"
@@ -125,11 +126,12 @@ export const AppBar: FC = (props) => {
                       onChange={(e) => setAutoConnect(e.target.checked)}
                       className="toggle"
                     />
-                  </label>
+                  </label> */}
+                  <NetworkSwitcher />
                 </div>
               </li>
             </ul>
-          </div> */}
+          </div>}
           <WalletMultiButton className="btn btn-ghost mr-4" />
         </div>
       </div>

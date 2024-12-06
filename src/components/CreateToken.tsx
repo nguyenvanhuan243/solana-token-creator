@@ -20,11 +20,15 @@ import {
   createCreateMetadataAccountV3Instruction
 } from '@metaplex-foundation/mpl-token-metadata';
 
+import { useNetworkConfiguration } from "contexts/NetworkConfigurationProvider";
+
+
 export const CreateToken: FC = () => {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
   const [tokenName, setTokenName] = useState('')
   const [symbol, setSymbol] = useState('')
+  const { networkConfiguration } = useNetworkConfiguration();
 
   // Supply 21_000_000 Token
   const AMOUNT_TOKEN_SUPPLY = BigInt("21000000000000000");
