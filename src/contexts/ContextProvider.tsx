@@ -15,10 +15,19 @@ import { FC, ReactNode, useCallback, useMemo } from 'react';
 import { AutoConnectProvider, useAutoConnect } from './AutoConnectProvider';
 import { notify } from "../utils/notifications";
 
+import {
+    NetworkConfigurationProvider,
+    useNetworkConfiguration,
+  } from "./NetworkConfigurationProvider";
+
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const { autoConnect } = useAutoConnect();
-    const network = WalletAdapterNetwork.Devnet;
+    // const network = WalletAdapterNetwork.Devnet;
+    const { networkConfiguration } = useNetworkConfiguration();
+    const network = networkConfiguration as WalletAdapterNetwork;
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+
+    console.log(network);
 
     const wallets = useMemo(
         () => [
