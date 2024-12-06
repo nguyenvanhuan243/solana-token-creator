@@ -1,7 +1,10 @@
 import { FC } from 'react';
 import Link from 'next/link';
 
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import {
+  WalletMultiButton,
+  WalletDisconnectButton
+} from '@solana/wallet-adapter-react-ui';
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 
 export const AppBar: FC = (props) => {
@@ -131,6 +134,7 @@ export const AppBar: FC = (props) => {
             </ul>
           </div> */}
           <WalletMultiButton className="btn btn-ghost mr-4" />
+          <WalletDisconnectButton className="btn btn-ghost mr-4" />
         </div>
       </div>
       {props.children}
