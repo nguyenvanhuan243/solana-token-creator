@@ -52,7 +52,6 @@ export const Footer: FC = () => {
                             Powered by
                         </p>
                         <a
-                            rel="noreferrer"
                             href="https://fiotech.org"
                             target="_blank"
                             className="text-white text-base font-bold hover:text-primary-dark transition-all duration-200"
