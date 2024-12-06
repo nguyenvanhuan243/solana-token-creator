@@ -143,7 +143,8 @@ export const CreateToken: FC = () => {
         rel="noreferrer"
         className="px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ..."
         href="https://t.me/huancapital"
-        target="_blank">
+        target="_blank"
+      >
         <span>Contact Telegram</span>
       </a>
       <button
